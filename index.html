@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A simple weather app">
-    <meta name="theme-color" content="rgb(63 81 181)" />
+    <meta name="theme-color" content="#3f51b5" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Weather PWA">
@@ -17,7 +18,11 @@
 <div id="body">
     <div id="header">
         <p id="title">Whether Weather</p>
-        <i id="refresh" class="fa fa-refresh" onclick="Refresh()"></i>
+        <div>
+            <button id="butInstall" aria-label="install button" hidden></button>
+            <i id="refresh" class="fa fa-refresh" onclick="Refresh()"></i>
+        </div>
+
     </div>
     <div id="forecast">
         <p id="update"></p>
@@ -132,6 +137,7 @@
     </div>
 </div>
 <script src="weather.js"></script>
+<script src="install.js"></script>
 <script>
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {

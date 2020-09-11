@@ -12,6 +12,19 @@ weather.current.temperature = {
     unit: "celsius"
 };
 
+(function handlePermission(){
+    navigator.permissions.query({name:'geolocation'}).then(function(result) {
+        if (result.state == 'granted') {
+            getLocation();
+        } else if (result.state == 'prompt') {
+          getLocation();
+        } else if (result.state == 'denied') {
+
+        }
+
+    });
+}());
+
 (function initializeDays() {
     let i;
     for (i=0; i<4; i++){
@@ -53,13 +66,13 @@ function Refresh(){
     refresh.style.color = "deepskyblue";
     location.reload();
 }
-(function getLocation() {
+function getLocation() {
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(showPosition, error);
     }else{
     alert("browser doesn't support geolocation");
     }
-}())
+}
 
 function showPosition(position) {
     variables.lat = position.coords.latitude;

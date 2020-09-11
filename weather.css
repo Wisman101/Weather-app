@@ -1,6 +1,6 @@
 body{
     display: flex;
-    background-image: url("/icons/background3.jpg");
+    background-image: url("icons/background3.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -51,6 +51,15 @@ input:focus{
     padding: 0 0 0 10px;
     margin: 0;
 }
+#butInstall{
+    background-image: url("icons/install.svg");
+    width: 25px;
+    height: 25px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: black;
+}
 #title{
     font-weight: bolder;
     font-size: larger;
@@ -73,8 +82,8 @@ input:focus{
     box-shadow: 0 0 5px 1px black;
 }
 #current img{
-    width: 128px;
-    height: 128px;
+    width: 100px;
+    height: 100px;
     background-color: rgb(74 74 74);
 }
 #today{
@@ -104,8 +113,8 @@ input:focus{
     box-shadow: 0 0 5px 1px black;
 }
 .display img{
-    width: 64px;
-    height: 64px;
+    width: 50px;
+    height: 50px;
     background-color: rgb(74 74 74);
 }
 @media only screen and (orientation: landscape) {
@@ -118,5 +127,8 @@ input:focus{
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
         justify-content: center;
+    }
+    #current{
+        width: 90%;
     }
 }
