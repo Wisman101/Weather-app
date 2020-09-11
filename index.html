@@ -2,9 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="A simple weather app">
+    <meta name="theme-color" content="rgb(63 81 181)" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Weather PWA">
     <title>Whether weather</title>
+    <link rel="apple-touch-icon" href="icons/icon-152.png">
     <link href="weather.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
 <div id="body">
@@ -21,7 +28,7 @@
                 <span id="img_current"><img src="icons/unknown.png" alt="weather_icon"/></span>
                 <span id="temp_current">--°c</span>
             </p>
-            <p id="desc_current">---</p>
+            <p id="desc_current" class="desc">---</p>
             <p class="weather">
                 <span id="wind">wind -M/S</span>
                 <span id="visibility">visibility -KM</span>
@@ -125,5 +132,15 @@
     </div>
 </div>
 <script src="weather.js"></script>
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('service-worker.js')
+                .then((reg) => {
+                    console.log('Service worker registered.', reg);
+                });
+        });
+    }
+</script>
 </body>
 </html>
