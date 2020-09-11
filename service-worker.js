@@ -111,7 +111,7 @@ self.addEventListener('fetch', (evt) => {
     console.log('[ServiceWorker] Fetch', evt.request.url);
     // CODELAB: Add fetch event handler here.
     // CODELAB: Add fetch event handler here.
-    if (evt.request.url.includes('/forecast/')) {
+    if (evt.request.url.includes('/api.openweathermap.org/')) {
         console.log('[Service Worker] Fetch (data)', evt.request.url);
         evt.respondWith(
             caches.open(dataCacheName).then((cache) => {
