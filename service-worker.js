@@ -110,7 +110,6 @@ self.addEventListener('activate', (evt) => {
 self.addEventListener('fetch', (evt) => {
     console.log('[ServiceWorker] Fetch', evt.request.url);
     if (evt.request.url.includes('/api.openweathermap.org/')) {
-        alert(evt.request.url);
         console.log('[Service Worker] Fetch (data)', evt.request.url);
         evt.respondWith(
             caches.open(dataCacheName).then((cache) => {
